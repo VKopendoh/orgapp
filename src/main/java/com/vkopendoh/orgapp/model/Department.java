@@ -22,7 +22,7 @@ public class Department {
     @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
     private List<Department> childrens = new LinkedList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "department", cascade = CascadeType.ALL)
     private List<Employee> employees = new ArrayList<>();
 
     public Department(String name, LocalDate createDate, Department parent,
@@ -31,7 +31,7 @@ public class Department {
         this.createDate = createDate;
         this.parent = parent;
         this.childrens = childrens;
-        //this.employees = employees;
+        this.employees = employees;
     }
 
     public Department(String name, LocalDate createDate) {
@@ -41,8 +41,6 @@ public class Department {
 
     public Department() {
     }
-
-
 
     private void registerInParentsChilds() {
         this.parent.childrens.add(this);
@@ -87,9 +85,6 @@ public class Department {
     public void setChildrens(List<Department> childrens) {
         this.childrens = childrens;
     }
-
-
-
 
     public List<Employee> getEmployees() {
         return employees;

@@ -4,7 +4,6 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -14,28 +13,21 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
     private String surname;
 
-    @NotBlank
     private String name;
     private String patronymic;
 
-    @NotBlank
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    @NotBlank
     private LocalDate birthDate;
 
-    @NotBlank
     private String phone;
 
     @Email
-    @NotBlank
     private String email;
 
-    @NotBlank
     private LocalDate employmentDate;
     private LocalDate retireDate;
 
@@ -50,10 +42,9 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @NotBlank
     private boolean manager;
 
-    public Employee(){
+    public Employee() {
     }
 
     public Employee(String surname, String name, String patronymic, Sex sex,

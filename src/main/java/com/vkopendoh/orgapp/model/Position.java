@@ -1,7 +1,6 @@
 package com.vkopendoh.orgapp.model;
 
 import javax.persistence.*;
-import javax.persistence.Id;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ public class Position {
     @OneToMany(mappedBy = "position")
     private Set<Employee> employees = new HashSet<>();
 
-    public Position(){
+    public Position() {
     }
 
     public Position(String name) {
