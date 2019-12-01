@@ -12,6 +12,7 @@ public class Position {
     private String name;
 
     @OneToMany(mappedBy = "position")
+    //@BatchSize(size = 200)
     private Set<Employee> employees = new HashSet<>();
 
     public Position() {

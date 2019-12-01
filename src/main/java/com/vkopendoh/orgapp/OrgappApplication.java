@@ -1,32 +1,20 @@
 package com.vkopendoh.orgapp;
 
-import com.vkopendoh.orgapp.model.Department;
-import com.vkopendoh.orgapp.model.Employee;
-import com.vkopendoh.orgapp.model.Sex;
-import com.vkopendoh.orgapp.repository.CrudDepartmentRepository;
-import com.vkopendoh.orgapp.repository.CrudEmployeeRepository;
-import com.vkopendoh.orgapp.repository.CrudPositionRepository;
-import com.vkopendoh.orgapp.util.DepartmentUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-
 @SpringBootApplication
 public class OrgappApplication implements CommandLineRunner {
 
-    @Autowired
+   /* @Autowired
     CrudDepartmentRepository departmentRepository;
 
     @Autowired
     CrudEmployeeRepository employeeRepository;
 
     @Autowired
-    CrudPositionRepository positionRepository;
+    CrudPositionRepository positionRepository;*/
 
     public static void main(String[] args) {
         SpringApplication.run(OrgappApplication.class, args);
@@ -34,7 +22,7 @@ public class OrgappApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Department dpt1 = new Department("dpt1", EmployeeUtils.LOCAL_DATE);
+      /*  Department dpt1 = new Department("dpt1", EmployeeUtils.LOCAL_DATE);
         Department dpt2 = new Department("dpt2", EmployeeUtils.LOCAL_DATE);
         Department dpt11 = new Department("dpt11", EmployeeUtils.LOCAL_DATE);
         Department dpt21 = new Department("dpt21", EmployeeUtils.LOCAL_DATE);
@@ -78,6 +66,6 @@ public class OrgappApplication implements CommandLineRunner {
         System.out.println(d2.getName());
         d2.getChildrens().forEach(x -> System.out.println(x.getName()));
 
-        System.out.println(DepartmentUtils.getTo(d));
+        System.out.println(DepartmentUtils.getTo(d));*/
     }
 }

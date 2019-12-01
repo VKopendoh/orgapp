@@ -4,8 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Department {
@@ -20,17 +21,19 @@ public class Department {
 
     @NotNull
     @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
-    private List<Department> childrens = new LinkedList<>();
+    // @BatchSize(size = 200)
+    private Set<Department> children = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "department", cascade = CascadeType.ALL)
+    // @BatchSize(size = 200)
     private List<Employee> employees = new ArrayList<>();
 
     public Department(String name, LocalDate createDate, Department parent,
-                      List<Department> childrens, List<Employee> employees) {
+                      Set<Department> children, List<Employee> employees) {
         this.name = name;
         this.createDate = createDate;
         this.parent = parent;
-        this.childrens = childrens;
+        this.children = children;
         this.employees = employees;
     }
 
@@ -43,7 +46,7 @@ public class Department {
     }
 
     private void registerInParentsChilds() {
-        this.parent.childrens.add(this);
+        this.parent.children.add(this);
     }
 
     public Integer getId() {
@@ -78,12 +81,12 @@ public class Department {
         this.parent = parent;
     }
 
-    public List<Department> getChildrens() {
-        return childrens;
+    public Set<Department> getChildren() {
+        return children;
     }
 
-    public void setChildrens(List<Department> childrens) {
-        this.childrens = childrens;
+    public void setChildrens(Set<Department> children) {
+        this.children = children;
     }
 
     public List<Employee> getEmployees() {
@@ -100,8 +103,7 @@ public class Department {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", createDate=" + createDate +
-                ", parent=" + parent +
-                ", childrens=" + childrens +
+                ", childrens=" + children +
                 ", employees=" + employees +
                 '}';
     }
