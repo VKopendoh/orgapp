@@ -1,6 +1,8 @@
 package com.vkopendoh.orgapp.service;
 
 import com.vkopendoh.orgapp.model.Department;
+import com.vkopendoh.orgapp.model.Employee;
+import com.vkopendoh.orgapp.model.Payroll;
 import com.vkopendoh.orgapp.repository.CrudDepartmentRepository;
 import com.vkopendoh.orgapp.to.DepartmentTo;
 import com.vkopendoh.orgapp.util.DepartmentUtils;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,4 +60,43 @@ public class DepartmentService {
                 .orElseThrow(() -> new NotFoundException("Department with id: " + id + " not found"));
     }
 
+    public void delete(int id) {
+        Department department = get(id);
+        if (department.getEmployees().isEmpty()) {
+            repository.delete(department);
+        }
+    }
+
+    @Transactional
+    public void rename(String newName, int id) {
+        Department department = get(id);
+        department.setName(newName);
+        repository.save(department);
+    }
+
+    public Department create(Department department) {
+        department.setCreateDate(LocalDate.now());
+        return repository.save(department);
+    }
+
+    public void setParent(Integer parentId, int id) {
+        Department department = get(id);
+        department.getChildren().stream()
+                .forEach(d -> {
+                    d.setParent(department.getParent());
+                    repository.save(d);
+                });
+        Department parent = get(parentId);
+        department.setParent(parent);
+        repository.save(department);
+    }
+
+    public Payroll getPayroll(int id) {
+        Department department = get(id);
+        Integer payroll = department.getEmployees()
+                .stream()
+                .mapToInt(Employee::getSalary)
+                .sum();
+        return new Payroll(department.getName(), payroll);
+    }
 }

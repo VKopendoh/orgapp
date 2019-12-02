@@ -1,19 +1,26 @@
 package com.vkopendoh.orgapp.controller;
 
+import com.vkopendoh.orgapp.model.Department;
+import com.vkopendoh.orgapp.model.Payroll;
 import com.vkopendoh.orgapp.service.DepartmentService;
 import com.vkopendoh.orgapp.to.DepartmentTo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Set;
 
 @RestController
 @RequestMapping(value = DepartmentController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class DepartmentController {
-    static final String REST_URL = "/rest/departments";
+    static final String REST_URL = "/rest/department";
     @Autowired
     DepartmentService service;
+
 
     @GetMapping
     public Set<DepartmentTo> getAll() {
@@ -45,60 +52,40 @@ public class DepartmentController {
         return service.getToByName(name);
     }
 
-}
-
-
-
-/*
-@RestController
-@RequestMapping(value = MealRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-public class MealRestController extends AbstractMealController {
-    static final String REST_URL = "/rest/profile/meals";
-
-    @Override
-    @GetMapping("/{id}")
-    public Meal get(@PathVariable int id) {
-        return super.get(id);
+    @GetMapping(value = "/{id}/payroll")
+    public Payroll getPayroll(@PathVariable int id) {
+        return service.getPayroll(id);
     }
 
-    @Override
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id) {
-        super.delete(id);
+        service.delete(id);
     }
 
-    @Override
-    @GetMapping
-    public List<MealTo> getAll() {
-        return super.getAll();
-    }
 
-    @Override
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}/set/name", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void update(@RequestBody Meal meal, @PathVariable int id) {
-        super.update(meal, id);
+    public void rename(@RequestParam String newName, @PathVariable int id) {
+        service.rename(newName, id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Meal> createWithLocation(@RequestBody Meal meal) {
-        Meal created = super.create(meal);
-
+    public ResponseEntity<Department> createWithLocation(@RequestBody Department department) {
+        Department created = service.create(department);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(REST_URL + "/{id}")
                 .buildAndExpand(created.getId()).toUri();
-
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
-    @Override
-    @GetMapping(value = "/filter")
-    public List<MealTo> getBetween(
-            @RequestParam @Nullable LocalDate startDate,
-            @RequestParam @Nullable LocalTime startTime,
-            @RequestParam @Nullable LocalDate endDate,
-            @RequestParam @Nullable LocalTime endTime) {
-        return super.getBetween(startDate, startTime, endDate, endTime);
+    @PutMapping(value = "/{id}/set/parent")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void setParent(@RequestParam Integer parentId, @PathVariable int id) {
+        service.setParent(parentId, id);
     }
-}*/
+
+
+}
+
+

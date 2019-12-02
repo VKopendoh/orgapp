@@ -1,10 +1,13 @@
 package com.vkopendoh.orgapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +15,6 @@ public class Position {
     private String name;
 
     @OneToMany(mappedBy = "position")
-    //@BatchSize(size = 200)
     private Set<Employee> employees = new HashSet<>();
 
     public Position() {

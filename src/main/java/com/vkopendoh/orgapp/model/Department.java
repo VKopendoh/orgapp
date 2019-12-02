@@ -1,5 +1,8 @@
 package com.vkopendoh.orgapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -9,23 +12,27 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name", unique = true)
     private String name;
+
     private LocalDate createDate;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     private Department parent;
 
     @NotNull
-    @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER)
-    // @BatchSize(size = 200)
+    @JsonIgnore
+    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
     private Set<Department> children = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "department", cascade = CascadeType.ALL)
-    // @BatchSize(size = 200)
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
     private List<Employee> employees = new ArrayList<>();
 
     public Department(String name, LocalDate createDate, Department parent,
@@ -37,9 +44,9 @@ public class Department {
         this.employees = employees;
     }
 
-    public Department(String name, LocalDate createDate) {
+    public Department(Department parent, String name) {
+        this.parent = parent;
         this.name = name;
-        this.createDate = createDate;
     }
 
     public Department() {

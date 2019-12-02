@@ -4,11 +4,11 @@ DROP TABLE IF EXISTS position;
 
 CREATE TABLE department
 (
-    id          SERIAL PRIMARY KEY      NOT NULL,
-    create_date TIMESTAMP DEFAULT now() NOT NULL,
-    name        VARCHAR UNIQUE          NOT NULL,
-    parent_id   INTEGER   DEFAULT NULL,
-    FOREIGN KEY (parent_id) REFERENCES department (id)
+    id          SERIAL PRIMARY KEY NOT NULL,
+    create_date TIMESTAMP DEFAULT now(),
+    name        VARCHAR UNIQUE     NOT NULL,
+    parent_id   INTEGER,
+    FOREIGN KEY (parent_id) REFERENCES department (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE UNIQUE INDEX department_unique_name_idx

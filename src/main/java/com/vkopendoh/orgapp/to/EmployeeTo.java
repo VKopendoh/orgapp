@@ -1,80 +1,36 @@
-package com.vkopendoh.orgapp.model;
+package com.vkopendoh.orgapp.to;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.validator.constraints.Range;
-
-import javax.persistence.*;
-import javax.validation.constraints.Email;
 import java.time.LocalDate;
 
-@Entity
-@DynamicUpdate
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Employee {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+public class EmployeeTo {
     private String surname;
-
     private String name;
     private String patronymic;
-
-    @Enumerated(EnumType.STRING)
-    private Sex sex;
-
+    private String sex;
     private LocalDate birthDate;
-
     private String phone;
-
-    @Email
     private String email;
-
     private LocalDate employmentDate;
     private LocalDate retireDate;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "position_id")
-    private Position position;
-
-    @Range(min = 1)
+    private String position;
     private Integer salary;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "department_id")
-    @BatchSize(size = 20)
-    private Department department;
-
+    private String department;
     private boolean manager;
+    private EmployeeTo supervisor;
 
-    public Employee() {
-    }
-
-    public Employee(String surname, String name, String patronymic, Sex sex,
-                    LocalDate birthDate, String phone, String email, LocalDate employmentDate,
-                    LocalDate retireDate, Integer salary) {
+    public EmployeeTo(String surname, String name, String sex, LocalDate birthDate,
+                      String phone, String email, LocalDate employmentDate,
+                      String position, Integer salary, String department) {
         this.surname = surname;
         this.name = name;
-        this.patronymic = patronymic;
         this.sex = sex;
         this.birthDate = birthDate;
         this.phone = phone;
         this.email = email;
         this.employmentDate = employmentDate;
-        this.retireDate = retireDate;
+        this.position = position;
         this.salary = salary;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.department = department;
     }
 
     public String getSurname() {
@@ -101,11 +57,11 @@ public class Employee {
         this.patronymic = patronymic;
     }
 
-    public Sex getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -149,11 +105,11 @@ public class Employee {
         this.retireDate = retireDate;
     }
 
-    public Position getPosition() {
+    public String getPosition() {
         return position;
     }
 
-    public void setPosition(Position position) {
+    public void setPosition(String position) {
         this.position = position;
     }
 
@@ -165,11 +121,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Department getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
@@ -181,23 +137,11 @@ public class Employee {
         this.manager = manager;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", surname='" + surname + '\'' +
-                ", name='" + name + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", sex=" + sex +
-                ", birthDate=" + birthDate +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", employmentDate=" + employmentDate +
-                ", retireDate=" + retireDate +
-                ", position=" +/* position +*/
-                ", salary=" + salary +
-                ", department=" + /*department +*/
-                ", manager=" + manager +
-                '}';
+    public EmployeeTo getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(EmployeeTo supervisor) {
+        this.supervisor = supervisor;
     }
 }
