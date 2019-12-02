@@ -4,6 +4,7 @@ import com.vkopendoh.orgapp.model.Department;
 import com.vkopendoh.orgapp.model.Payroll;
 import com.vkopendoh.orgapp.service.DepartmentService;
 import com.vkopendoh.orgapp.to.DepartmentTo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,6 +17,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping(value = DepartmentController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@Api(value="Department Management API", description="Operations pertaining to manage departments")
 public class DepartmentController {
     static final String REST_URL = "/rest/department";
     @Autowired

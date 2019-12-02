@@ -3,6 +3,7 @@ package com.vkopendoh.orgapp.controller;
 import com.vkopendoh.orgapp.model.Employee;
 import com.vkopendoh.orgapp.service.EmployeeService;
 import com.vkopendoh.orgapp.to.EmployeeTo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = EmployeeController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@Api(value="Employee Management API", description="Operations pertaining to manage employees")
 public class EmployeeController {
 
     @Autowired
