@@ -17,7 +17,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping(value = DepartmentController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(value="Department Management API", description="Operations pertaining to manage departments")
+@Api(value = "Department Management API", description = "Operations pertaining to manage departments")
 public class DepartmentController {
     static final String REST_URL = "/rest/department";
     @Autowired
@@ -60,11 +60,10 @@ public class DepartmentController {
     }
 
     @DeleteMapping("/{id}")
-    //@ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.OK)
     public void delete(@PathVariable int id) {
         service.delete(id);
     }
-
 
     @PutMapping(value = "/{id}/set/name", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)

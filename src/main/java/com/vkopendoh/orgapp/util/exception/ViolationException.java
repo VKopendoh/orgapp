@@ -5,6 +5,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 public class ViolationException extends ResponseStatusException {
     public ViolationException(String message) {
-        super(HttpStatus.BAD_REQUEST,message);
+        super(HttpStatus.BAD_REQUEST, message);
     }
 }

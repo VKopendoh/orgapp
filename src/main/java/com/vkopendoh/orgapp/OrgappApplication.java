@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"com.vkopendoh.orgapp"})
 public class OrgappApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(OrgappApplication.class, args);
     }

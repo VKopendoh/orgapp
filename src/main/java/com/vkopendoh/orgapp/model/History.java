@@ -1,10 +1,9 @@
 package com.vkopendoh.orgapp.model;
 
-import com.sun.deploy.xml.GeneralEntity;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class History {
@@ -16,11 +15,27 @@ public class History {
     @Enumerated(EnumType.STRING)
     private Action action;
 
-    @ManyToMany
-    private Department department;
+    private String description;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name = "department_history",
+            joinColumns = {@JoinColumn(name = "history_id")},
+            inverseJoinColumns = {@JoinColumn(name = "department_id")})
+    private List<Department> departments;
 
     @NotNull
     private LocalDateTime created;
+
+    public History() {
+    }
+
+    public History(@NotNull Action action, String description, @NotNull LocalDateTime created) {
+        this.action = action;
+        this.description = description;
+        this.created = created;
+    }
 
     public Integer getId() {
         return id;
@@ -38,13 +53,21 @@ public class History {
         this.action = action;
     }
 
-   /* public String getDescription() {
+    public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }*/
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
 
     public LocalDateTime getCreated() {
         return created;

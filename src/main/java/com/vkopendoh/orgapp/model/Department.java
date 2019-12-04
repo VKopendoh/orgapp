@@ -17,7 +17,9 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
     @Column(name = "name", unique = true)
+    @NotNull
     private String name;
 
     private LocalDate createDate;
@@ -33,6 +35,14 @@ public class Department {
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
     private List<Employee> employees = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(
+            name = "department_history",
+            joinColumns = {@JoinColumn(name = "department_id")},
+            inverseJoinColumns = {@JoinColumn(name = "history_id")})
+    private List<History> histories;
 
     public Department(String name, LocalDate createDate, Department parent,
                       Set<Department> children, List<Employee> employees) {
@@ -101,6 +111,18 @@ public class Department {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void setChildren(Set<Department> children) {
+        this.children = children;
+    }
+
+    public List<History> getHistories() {
+        return histories;
+    }
+
+    public void setHistories(List<History> histories) {
+        this.histories = histories;
     }
 
     @Override
