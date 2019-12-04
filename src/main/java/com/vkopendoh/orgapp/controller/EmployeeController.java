@@ -2,6 +2,8 @@ package com.vkopendoh.orgapp.controller;
 
 import com.vkopendoh.orgapp.model.Employee;
 import com.vkopendoh.orgapp.service.EmployeeService;
+import com.vkopendoh.orgapp.to.EmplSearchBy;
+import com.vkopendoh.orgapp.util.exception.NotFoundException;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,14 +23,29 @@ import java.util.List;
 @Api(value = "Employee Management API", description = "Operations pertaining to manage employees")
 public class EmployeeController {
 
+    private final EmployeeService service;
+
     @Autowired
-    EmployeeService service;
+    public EmployeeController(EmployeeService service) {
+        this.service = service;
+    }
 
     final static String REST_URL = "/rest/employee";
 
     @GetMapping("/{id}")
     public Employee get(@PathVariable int id) {
         return service.getFetch(id);
+    }
+
+    @GetMapping("/searchBy")
+    public List<Employee> get(@Valid @RequestBody EmplSearchBy searchBy) {
+        if (searchBy.getName() != null) {
+            return service.findByName(searchBy.getName());
+        } else if (searchBy.getBirthDate() != null) {
+            return service.findByBirthDate(searchBy.getBirthDate());
+        } else {
+            throw new NotFoundException("Employee with your parameters not found");
+        }
     }
 
     @GetMapping("/{id}/manager")
@@ -57,8 +74,9 @@ public class EmployeeController {
     }
 
     @PatchMapping(value = "/{id}/retire", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Employee retire(@Valid @RequestParam LocalDate date, @PathVariable int id) throws Exception {
-        return service.retire(date, id);
+    public Employee retire(@RequestParam String date, @PathVariable int id) throws Exception {
+        LocalDate localDate = LocalDate.parse(date);
+        return service.retire(localDate, id);
     }
 
     @PatchMapping(value = "/{id}/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)

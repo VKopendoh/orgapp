@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class HistoryService {
 
+    private final HistoryRepository repository;
+
     @Autowired
-    HistoryRepository repository;
+    public HistoryService(HistoryRepository repository) {
+        this.repository = repository;
+    }
 
     public History save(History action) {
         return repository.save(action);

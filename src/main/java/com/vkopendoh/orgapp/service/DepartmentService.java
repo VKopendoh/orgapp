@@ -2,6 +2,7 @@ package com.vkopendoh.orgapp.service;
 
 import com.vkopendoh.orgapp.model.*;
 import com.vkopendoh.orgapp.repository.DepartmentRepository;
+import com.vkopendoh.orgapp.repository.PayrollRepository;
 import com.vkopendoh.orgapp.to.DepartmentTo;
 import com.vkopendoh.orgapp.util.DepartmentUtils;
 import com.vkopendoh.orgapp.util.exception.NotFoundException;
@@ -17,11 +18,17 @@ import java.util.Set;
 
 @Service
 public class DepartmentService {
-    @Autowired
-    DepartmentRepository repository;
+    private final DepartmentRepository repository;
+    private final HistoryService historyService;
+    private final PayrollRepository payrollRepository;
 
     @Autowired
-    HistoryService historyService;
+    public DepartmentService(DepartmentRepository repository, HistoryService historyService,
+                             PayrollRepository payrollRepository) {
+        this.repository = repository;
+        this.historyService = historyService;
+        this.payrollRepository = payrollRepository;
+    }
 
     @Transactional
     public Set<DepartmentTo> getAll() {
@@ -111,6 +118,6 @@ public class DepartmentService {
                 .stream()
                 .mapToInt(Employee::getSalary)
                 .sum();
-        return new Payroll(department.getName(), payroll);
+        return new Payroll(department.getId(), department.getName(), payroll, department);
     }
 }

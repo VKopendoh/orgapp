@@ -33,16 +33,19 @@ public class Department {
     private Set<Department> children = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "department", cascade = CascadeType.ALL)
     private List<Employee> employees = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
-            CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "department_history",
             joinColumns = {@JoinColumn(name = "department_id")},
             inverseJoinColumns = {@JoinColumn(name = "history_id")})
     private List<History> histories;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "payroll_id")
+    private Payroll payroll;
 
     public Department(String name, LocalDate createDate, Department parent,
                       Set<Department> children, List<Employee> employees) {
@@ -123,6 +126,14 @@ public class Department {
 
     public void setHistories(List<History> histories) {
         this.histories = histories;
+    }
+
+    public Payroll getPayroll() {
+        return payroll;
+    }
+
+    public void setPayroll(Payroll payroll) {
+        this.payroll = payroll;
     }
 
     @Override

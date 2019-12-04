@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Transactional(readOnly = true)
@@ -24,4 +25,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Override
     @Transactional
     Employee save(Employee item);
+
+    List<Employee> findByName(String name);
+
+    List<Employee> findByBirthDate(LocalDate birthDate);
 }

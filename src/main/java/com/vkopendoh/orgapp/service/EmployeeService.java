@@ -15,11 +15,15 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    @Autowired
-    EmployeeRepository repository;
+    private final EmployeeRepository repository;
+
+    private final DepartmentRepository departmentRepository;
 
     @Autowired
-    DepartmentRepository departmentRepository;
+    public EmployeeService(EmployeeRepository repository, DepartmentRepository departmentRepository) {
+        this.repository = repository;
+        this.departmentRepository = departmentRepository;
+    }
 
     public Employee getFetch(int id) {
         return repository.get(id);
@@ -53,8 +57,11 @@ public class EmployeeService {
         if (updated == null) {
             throw new NotFoundException("Can't retire, employee with id: " + id + " not found");
         }
+        updated.setDepartment(null);
+        updated.setManager(false);
+        updated.setSalary(0);
         updated.setRetireDate(date);
-        validateData(updated);
+        validateDates(updated);
         return repository.save(updated);
     }
 
@@ -100,16 +107,16 @@ public class EmployeeService {
         return employees.stream().filter(Employee::isManager).findAny().orElse(null);
     }
 
+    public List<Employee> findByName(String name) {
+        return repository.findByName(name);
+    }
+
+    public List<Employee> findByBirthDate(LocalDate birthDate) {
+        return repository.findByBirthDate(birthDate);
+    }
+
     private void validateData(Employee employee) {
-        LocalDate empDate = employee.getEmploymentDate();
-        LocalDate birthDate = employee.getBirthDate();
-        LocalDate retireDate = employee.getRetireDate();
-        if (empDate.compareTo(birthDate) < 1) {
-            throw new ViolationException("Employment date can't be earlier then birth date");
-        }
-        if (retireDate != null && retireDate.compareTo(empDate) < 1) {
-            throw new ViolationException("Employment date can't be later then retire date");
-        }
+        validateDates(employee);
         int departmentId = employee.getDepartment().getId();
         Employee manager = getManager(departmentId);
         if (employee.isManager() && manager != null) {
@@ -119,6 +126,18 @@ public class EmployeeService {
         if (manager != null && manager.getSalary() < employee.getSalary()) {
             throw new ViolationException("Employee salary can't be greater then managers, which is now: "
                     + manager.getSalary());
+        }
+    }
+
+    private void validateDates(Employee employee) {
+        LocalDate empDate = employee.getEmploymentDate();
+        LocalDate birthDate = employee.getBirthDate();
+        LocalDate retireDate = employee.getRetireDate();
+        if (empDate.compareTo(birthDate) < 1) {
+            throw new ViolationException("Employment date can't be earlier then birth date");
+        }
+        if (retireDate != null && retireDate.compareTo(empDate) < 1) {
+            throw new ViolationException("Employment date can't be later then retire date");
         }
     }
 }

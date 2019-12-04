@@ -19,10 +19,14 @@ import java.util.Set;
 @RequestMapping(value = DepartmentController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(value = "Department Management API", description = "Operations pertaining to manage departments")
 public class DepartmentController {
-    static final String REST_URL = "/rest/department";
-    @Autowired
-    DepartmentService service;
 
+    static final String REST_URL = "/rest/department";
+    private final DepartmentService service;
+
+    @Autowired
+    public DepartmentController(DepartmentService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public Set<DepartmentTo> getAll() {

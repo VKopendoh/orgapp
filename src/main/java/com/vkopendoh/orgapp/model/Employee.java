@@ -49,10 +49,10 @@ public class Employee {
     @JoinColumn(name = "position_id")
     private Position position;
 
-    @Range(min = 1)
+    @Range(min = 0)
     private Integer salary;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id")
     private Department department;
 

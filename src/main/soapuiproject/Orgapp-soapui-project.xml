@@ -1,253 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="b0fed5cd-83bb-4828-a7e9-65efed1528ba" activeEnvironment="Default" name="Orgapp" resourceRoot=""
-                    soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL"
-                    xmlns:con="http://eviware.com/soapui/config">
-    <con:settings/>
-    <con:interface xsi:type="con:RestService" id="901904b3-87d1-4608-9dc4-316308eebc33"
-                   wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <con:settings/>
-        <con:definitionCache/>
-        <con:endpoints>
-            <con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint>
-            <con:endpoint>http://localhost:8080</con:endpoint>
-        </con:endpoints>
-        <con:resource name="employee" path="/rest/employee/1" id="99a9ef61-6ef7-4325-b419-8dd1b226e9b8">
-            <con:settings/>
-            <con:parameters/>
-            <con:method name="" id="a4a18f95-1d04-4cd7-93f3-bc9605cef26e" method="GET">
-                <con:settings/>
-                <con:parameters/>
-                <con:representation type="FAULT">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>500</con:status>
-                    <con:params/>
-                    <con:element xmlns:ns="http://localhost/rest/employee/1">ns:Fault</con:element>
-                </con:representation>
-                <con:representation type="RESPONSE">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>200</con:status>
-                    <con:params/>
-                </con:representation>
-                <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true"/>
-                    <con:status>0</con:status>
-                    <con:params/>
-                    <con:element>data</con:element>
-                </con:representation>
-                <con:request name="GetEmployeeById" id="471fd699-ba33-4fea-aa34-0e5336483312"
-                             mediaType="application/json">
-                    <con:settings>
-                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
-                        </con:setting>
-                    </con:settings>
-                    <con:endpoint>http://localhost:8080</con:endpoint>
-                    <con:request/>
-                    <con:originalUri>http://localhost/rest/employee/1</con:originalUri>
-                    <con:credentials>
-                        <con:authType>No Authorization</con:authType>
-                    </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-                    <con:jmsPropertyConfig/>
-                    <con:parameters/>
-                </con:request>
-            </con:method>
-            <con:method name="Method 2" id="499058ab-fecb-4761-9a5d-39599a085892" method="GET">
-                <con:settings/>
-                <con:parameters/>
-                <con:representation type="RESPONSE">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>200</con:status>
-                    <con:params/>
-                </con:representation>
-                <con:representation type="FAULT">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>500</con:status>
-                    <con:params/>
-                    <con:element xmlns:ns="http://localhost/rest/employee/1">ns:Fault</con:element>
-                </con:representation>
-                <con:request name="Request 1" id="a8181f33-0ad0-4085-b277-04970706141a" mediaType="application/json">
-                    <con:settings>
-                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
-                        </con:setting>
-                    </con:settings>
-                    <con:endpoint>http://localhost:8080/</con:endpoint>
-                    <con:request/>
-                    <con:originalUri>http://localhost/rest/employee/1</con:originalUri>
-                    <con:credentials>
-                        <con:authType>No Authorization</con:authType>
-                    </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-                    <con:jmsPropertyConfig/>
-                    <con:parameters/>
-                </con:request>
-            </con:method>
-        </con:resource>
-        <con:resource name="employees" path="/rest/employee/department/1/list"
-                      id="a7e101f5-d526-4c70-be03-8c99e33f2146">
-            <con:settings/>
-            <con:parameters/>
-            <con:method name="" id="43585155-cf42-4c53-8a2a-ab335db390d9" method="GET">
-                <con:settings/>
-                <con:parameters/>
-                <con:representation type="RESPONSE">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>200</con:status>
-                    <con:params/>
-                </con:representation>
-                <con:request name="GetEmployeesByDepartmentId" id="dfc4a5a7-b001-4021-a58a-32916ea59b6c"
-                             mediaType="application/json">
-                    <con:settings>
-                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
-                        </con:setting>
-                    </con:settings>
-                    <con:endpoint>http://localhost:8080</con:endpoint>
-                    <con:request/>
-                    <con:originalUri>http://localhost/rest/employee/department/1/list</con:originalUri>
-                    <con:credentials>
-                        <con:authType>No Authorization</con:authType>
-                    </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-                    <con:jmsPropertyConfig/>
-                    <con:parameters/>
-                </con:request>
-            </con:method>
-            <con:method name="Method 2" id="94117208-2a16-4774-be95-041a5d057745" method="GET">
-                <con:settings/>
-                <con:parameters/>
-                <con:representation type="RESPONSE">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>200</con:status>
-                    <con:params/>
-                    <con:element>Response</con:element>
-                </con:representation>
-                <con:request name="Request 1" id="51d176be-09be-46c4-8787-77bbc47355a4" mediaType="application/json">
-                    <con:settings>
-                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
-                        </con:setting>
-                    </con:settings>
-                    <con:endpoint>http://localhost:8080</con:endpoint>
-                    <con:request/>
-                    <con:originalUri>http://localhost/rest/employee/department/1/list</con:originalUri>
-                    <con:credentials>
-                        <con:authType>No Authorization</con:authType>
-                    </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-                    <con:jmsPropertyConfig/>
-                    <con:parameters/>
-                </con:request>
-            </con:method>
-        </con:resource>
-        <con:resource name="employee" path="/rest/employee/1" id="d6a7e6d1-aaff-41b6-b8ce-2fca97b85ed3">
-            <con:settings/>
-            <con:parameters/>
-            <con:method name="" id="c5f5c6fe-74ed-4c6e-9d17-2c5b61c002ca" method="POST">
-                <con:settings/>
-                <con:parameters/>
-                <con:representation type="REQUEST">
-                    <con:mediaType>application/json</con:mediaType>
-                    <con:params/>
-                </con:representation>
-                <con:representation type="FAULT">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>400</con:status>
-                    <con:params/>
-                    <con:element xmlns:emp="http://localhost/rest/employee">emp:Fault</con:element>
-                </con:representation>
-                <con:representation type="RESPONSE">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>201</con:status>
-                    <con:params/>
-                    <con:element xmlns:emp="http://localhost/rest/employee">emp:Response</con:element>
-                </con:representation>
-                <con:request name="CreateEmployee" id="1db7e64a-87c2-45e6-bc83-d96ee273b249"
-                             mediaType="application/json" postQueryString="false">
-                    <con:settings>
-                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
-                        </con:setting>
-                    </con:settings>
-                    <con:encoding>UTF-8</con:encoding>
-                    <con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint>
-                    <con:request>{"birthDate": "1990-05-30",
-                        "email": "new2@yandex.ru",
-                        "employmentDate": "2010-05-30",
-                        "manager": "false",
-                        "name":"Пётр",
-                        "surname":"Иванов",
-                        "phone":"999999",
-                        "salary":"55000",
-                        "sex":"MALE",
-                        "department":{"id":1},
-                        "position":{"id":3}
-                        }
-                    </con:request>
-                    <con:originalUri>http://localhost/rest/employee</con:originalUri>
-                    <con:credentials>
-                        <con:authType>No Authorization</con:authType>
-                    </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-                    <con:jmsPropertyConfig/>
-                    <con:parameters/>
-                </con:request>
-            </con:method>
-            <con:method name="UpdateEmployee" id="a51a889f-d5ce-4260-992b-f782c1bbe9ea" method="PUT">
-                <con:settings/>
-                <con:parameters/>
-                <con:representation type="REQUEST">
-                    <con:mediaType>application/json</con:mediaType>
-                    <con:params/>
-                </con:representation>
-                <con:representation type="FAULT">
-                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
-                    <con:status>400 500</con:status>
-                    <con:params/>
-                    <con:element xmlns:emp="http://DESKTOP-AB0U5JP/rest/employee">emp:Fault</con:element>
-                </con:representation>
-                <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true"/>
-                    <con:status>0</con:status>
-                    <con:params/>
-                    <con:element>data</con:element>
-                </con:representation>
-                <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true"/>
-                    <con:status>204</con:status>
-                    <con:params/>
-                    <con:element>data</con:element>
-                </con:representation>
-                <con:request name="UpdateEmployee" id="37f05098-b274-4d53-bee2-42e9fe7ca7fd"
-                             mediaType="application/json" postQueryString="false">
-                    <con:settings>
-                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
-                        </con:setting>
-                    </con:settings>
-                    <con:encoding>UTF-8</con:encoding>
-                    <con:endpoint>http://localhost:8080/</con:endpoint>
-                    <con:request>{"birthDate": "1990-05-30",
-                        "email": "new2@yandex.ru",
-                        "employmentDate": "2010-05-30",
-                        "manager": "false",
-                        "name":"Обновить руководителя",
-                        "surname":"Иванов",
-                        "phone":"999999",
-                        "salary":"55000",
-                        "sex":"MALE"
-                        }
-                    </con:request>
-                    <con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri>
-                    <con:credentials>
-                        <con:authType>No Authorization</con:authType>
-                    </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-                    <con:jmsPropertyConfig/>
-                    <con:parameters/>
-                </con:request>
-            </con:method>
-        </con:resource>
-    </con:interface>
-    <con:properties/>
-    <con:wssContainer/>
-    <con:oAuth2ProfileContainer/>
-    <con:oAuth1ProfileContainer/>
-    <con:sensitiveInformation/>
-</con:soapui-project>
+<con:soapui-project id="b0fed5cd-83bb-4828-a7e9-65efed1528ba" activeEnvironment="Default" name="Orgapp" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="901904b3-87d1-4608-9dc4-316308eebc33" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="employees" path="/rest/employee/department/1/list" id="a7e101f5-d526-4c70-be03-8c99e33f2146"><con:settings/><con:parameters/><con:method name="GetEmployeesByDepartmentId" id="43585155-cf42-4c53-8a2a-ab335db390d9" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="GetEmployeesByDepartmentId" id="dfc4a5a7-b001-4021-a58a-32916ea59b6c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/department/1/list</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="employee" path="/rest/employee/4" id="d6a7e6d1-aaff-41b6-b8ce-2fca97b85ed3"><con:settings/><con:parameters/><con:method name="UpdateEmployee" id="a51a889f-d5ce-4260-992b-f782c1bbe9ea" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:emp="http://DESKTOP-AB0U5JP/rest/employee">emp:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="UpdateEmployee" id="37f05098-b274-4d53-bee2-42e9fe7ca7fd" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иванушка",
+    "surname": "Иванова",
+    "phone": "+9-99-9 (99)",
+    "salary": "55000",
+    "sex": "FEMALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="GetEmployeeById" id="a8eb84fe-2e58-4ebc-8380-b290fc6f7a05" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/rest/employee/1">ns:Response</con:element></con:representation><con:request name="GetEmployeeById" id="f8a45701-3871-45bb-9c68-81f2178f18b8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="department" path="/rest/department/2" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="GetDepartment" id="e45581a4-c3f6-43db-b0e5-04f36322bb54" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="GetDepartment" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="departments" path="/rest/department/6/parents" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="GetParents" id="fe407693-ccac-4817-9585-a30caca36356" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:chil="http://localhost/rest/department/2/childs">chil:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="GetParents" id="a37cac2a-1f52-4213-811a-343d9a73efda" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/department/2/subs</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="employee" path="/rest/employee/4/transfer" id="d6a7e6d1-aaff-41b6-b8ce-2fca97b85ed3"><con:settings/><con:parameters><con:parameter><con:name>departmentId</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="TransferEmployee" id="c5f5c6fe-74ed-4c6e-9d17-2c5b61c002ca" method="PATCH"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 405</con:status><con:params/><con:element xmlns:emp="http://localhost/rest/employee">emp:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:emp="http://localhost/rest/employee">emp:Response</con:element></con:representation><con:request name="TransferEmployee" id="1db7e64a-87c2-45e6-bc83-d96ee273b249" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="departmentId" value="3" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>departmentId</con:entry></con:parameterOrder></con:request></con:method><con:method name="TransferEmployeeDeptError" id="c5f5c6fe-74ed-4c6e-9d17-2c5b61c002ca" method="PATCH"><con:settings/><con:parameters><con:parameter><con:name>departmentId</con:name><con:value>100</con:value><con:style>QUERY</con:style><con:default>100</con:default></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 405</con:status><con:params/><con:element xmlns:emp="http://localhost/rest/employee">emp:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:emp="http://localhost/rest/employee">emp:Response</con:element></con:representation><con:request name="TransferEmployeeDeptError" id="1db7e64a-87c2-45e6-bc83-d96ee273b249" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>departmentId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="employees" path="/rest/employee/department/6/transfer" id="a7e101f5-d526-4c70-be03-8c99e33f2146"><con:settings/><con:parameters><con:parameter><con:name>newId</con:name><con:value>4</con:value><con:style>QUERY</con:style><con:default>4</con:default></con:parameter></con:parameters><con:method name="TransferAllEmployeesToAnotherDep" id="43585155-cf42-4c53-8a2a-ab335db390d9" method="PATCH"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="TransferAllEmployeesToAnotherDep" id="dfc4a5a7-b001-4021-a58a-32916ea59b6c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/department/1/list</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>newId</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:resource name="FindManager of Department" path="/rest/employee/7/manager" id="d6a7e6d1-aaff-41b6-b8ce-2fca97b85ed3"><con:settings/><con:parameters/><con:method name="FindManager" id="a8eb84fe-2e58-4ebc-8380-b290fc6f7a05" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/rest/employee/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:ns="http://localhost/rest/employee/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="FindManager" id="f8a45701-3871-45bb-9c68-81f2178f18b8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="employee" path="/rest/employee" id="0751f379-9a32-4286-9354-50fc095dafcf"><con:settings/><con:parameters/><con:method name="CheckValidation" id="72e99e09-3e05-45ac-b88c-93fdb694d1c0" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>500 400</con:status><con:params/><con:element xmlns:emp="http://localhost/rest/employee">emp:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>201</con:status><con:params/><con:element xmlns:emp="http://localhost/rest/employee">emp:Response</con:element></con:representation><con:request name="NotValidName" id="8208a86c-d6ce-4f7e-8d7a-462e85c97e65" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "John",
+    "surname": "Doe",
+    "phone": "999999",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="NotValidDate" id="8208a86c-d6ce-4f7e-8d7a-462e85c97e65" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "199005-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="NotValidPhone" id="8208a86c-d6ce-4f7e-8d7a-462e85c97e65" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99)d 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="CreateEmpoyee" id="a1e6b4d8-b917-4940-a794-ecfa41d91919" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="NotValidEmail" id="a1e6b4d8-b917-4940-a794-ecfa41d91919" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="NotValidSalary" id="a1e6b4d8-b917-4940-a794-ecfa41d91919" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "-100",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="department" path="/rest/department/3" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="CreateDepartment" id="e45581a4-c3f6-43db-b0e5-04f36322bb54" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404 500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200 201</con:status><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="CreateDepartment" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{"name":"New Department Test", "parent":{"id":2}}</con:request><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry/></con:parameterOrder></con:request></con:method><con:method name="DeleteDepartment" id="aa4626ed-7000-46e9-9fb5-51bf4262dd07" method="DELETE"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="DeleteDepartment" id="7a3cc969-f3ad-4d38-85cd-b281dc21ab6f" mediaType="text/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhos:8080/</con:endpoint><con:request/><con:originalUri>http://localhos/rest/department/3</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry/></con:parameterOrder></con:request></con:method></con:resource><con:resource name="departments" path="/rest/department/" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="GetAllDepartments" id="e45581a4-c3f6-43db-b0e5-04f36322bb54" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="GetAllDepartments" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="Department GetChildren" path="/rest/department/2/children" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="GetChildren" id="fe407693-ccac-4817-9585-a30caca36356" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:chil="http://localhost/rest/department/2/childs">chil:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="GetChildren" id="f888ee72-8678-4990-b612-9c8e29a49792" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/department/2/childs</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="Department GetAllSubs" path="/rest/department/2/subs" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="GetAllSubs" id="fe407693-ccac-4817-9585-a30caca36356" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/><con:element xmlns:chil="http://localhost/rest/department/2/childs">chil:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="GetAllSubs" id="f888ee72-8678-4990-b612-9c8e29a49792" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/department/2/childs</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="department Payrol" path="/rest/department/2/payroll" id="158574b5-170b-4045-8014-e614e0d9c7a7"><con:settings/><con:parameters/><con:method name="GetDepartment" id="e45581a4-c3f6-43db-b0e5-04f36322bb54" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>404</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:request name="GetDepartment" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="c1a5eb18-30ba-4442-9507-5b3ee2f38304" name="http://localhost:8080 TestSuite"><con:description>TestSuite generated for REST Service [http://localhost:8080]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="33503503-dac6-453b-8027-f614f51877aa" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="employees TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [employees] located at [/rest/employee/department/1/list]</con:description><con:settings/><con:testStep type="restrequest" name="GetEmployeesByDepartmentId" id="18052477-835c-443b-93d3-0f355166f222"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/department/1/list" methodName="GetEmployeesByDepartmentId" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetEmployeesByDepartmentId" id="dfc4a5a7-b001-4021-a58a-32916ea59b6c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/department/1/list</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cd73349e-8a46-48fc-bfd4-012318c67b24" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="employee TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [employee] located at [/rest/employee/4]</con:description><con:settings/><con:testStep type="restrequest" name="UpdateEmployee" id="952be24c-efc0-45ad-a942-1e69ca4c5d3d"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/4" methodName="UpdateEmployee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateEmployee" id="37f05098-b274-4d53-bee2-42e9fe7ca7fd" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иванушка",
+    "surname": "Иванова",
+    "phone": "+9-99-9 (99)",
+    "salary": "55000",
+    "sex": "FEMALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GetEmployeeById" id="c3da7ed5-800b-4a02-bc75-39cebd124adb"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/4" methodName="GetEmployeeById" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetEmployeeById" id="f8a45701-3871-45bb-9c68-81f2178f18b8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b9f72ae4-7b77-4c82-aed6-ab8d82b2b5a4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="department TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [department] located at [/rest/department/2]</con:description><con:settings/><con:testStep type="restrequest" name="GetDepartment" id="22324f8b-dc4a-4db8-81eb-993309349cb4"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/2" methodName="GetDepartment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetDepartment" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="55747eff-c69f-4b0a-97fa-553b33a3acc7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="departments TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [departments] located at [/rest/department/6/parents]</con:description><con:settings/><con:testStep type="restrequest" name="GetParents" id="41e3e745-7fd9-4727-9550-31bbc666f598"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/6/parents" methodName="GetParents" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetParents" id="a37cac2a-1f52-4213-811a-343d9a73efda" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/department/2/subs</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e0ddaa57-3c73-4294-a6c6-47b9a0a61f7d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="employee TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [employee] located at [/rest/employee/4/transfer]</con:description><con:settings/><con:testStep type="restrequest" name="TransferEmployee" id="ac73bec9-b62d-4ecb-afcc-90f5750668da"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/4/transfer" methodName="TransferEmployee" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="TransferEmployee" id="1db7e64a-87c2-45e6-bc83-d96ee273b249" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="departmentId" value="3" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>departmentId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="TransferEmployeeDeptError" id="c7f885fa-75fe-4795-bab3-b8a37172990a"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/4/transfer" methodName="TransferEmployeeDeptError" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="TransferEmployeeDeptError" id="1db7e64a-87c2-45e6-bc83-d96ee273b249" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>departmentId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b744511e-3559-4c2f-ab79-920695304508" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="employees TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [employees] located at [/rest/employee/department/6/transfer]</con:description><con:settings/><con:testStep type="restrequest" name="TransferAllEmployeesToAnotherDep" id="363a94f5-9b93-4d67-8dab-2034656c6b3d"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/department/6/transfer" methodName="TransferAllEmployeesToAnotherDep" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="TransferAllEmployeesToAnotherDep" id="dfc4a5a7-b001-4021-a58a-32916ea59b6c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/department/1/list</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>newId</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="48cbcf45-9bb4-43e5-b3ae-6b1f5fe9e9cc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FindManager of Department TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [FindManager of Department] located at [/rest/employee/7/manager]</con:description><con:settings/><con:testStep type="restrequest" name="FindManager" id="11b226be-11dc-4e66-b8d3-7c168caf4104"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee/7/manager" methodName="FindManager" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="FindManager" id="f8a45701-3871-45bb-9c68-81f2178f18b8" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/employee/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b87950e5-a7e4-4b7c-acdd-2ff62560095c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="employee TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [employee] located at [/rest/employee]</con:description><con:settings/><con:testStep type="restrequest" name="NotValidName" id="67bbe659-b5ac-4a89-87da-4d37d6b71a78"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee" methodName="CheckValidation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="NotValidName" id="8208a86c-d6ce-4f7e-8d7a-462e85c97e65" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "John",
+    "surname": "Doe",
+    "phone": "999999",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="NotValidDate" id="9ee0f0c4-6a5c-4657-b1b8-3af15fa815d0"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee" methodName="CheckValidation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="NotValidDate" id="8208a86c-d6ce-4f7e-8d7a-462e85c97e65" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "199005-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="NotValidPhone" id="068d8ee3-3616-43c1-b107-a87bc5fe0882"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee" methodName="CheckValidation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="NotValidPhone" id="8208a86c-d6ce-4f7e-8d7a-462e85c97e65" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99)d 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://localhost/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreateEmpoyee" id="7ec0b63e-696d-41e3-b854-57047cffdb35"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee" methodName="CheckValidation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateEmpoyee" id="a1e6b4d8-b917-4940-a794-ecfa41d91919" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="NotValidEmail" id="fb332761-7b08-438f-bcc2-299a05b9eda8"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee" methodName="CheckValidation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="NotValidEmail" id="a1e6b4d8-b917-4940-a794-ecfa41d91919" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "55000",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="NotValidSalary" id="372c117f-20b9-4cdb-9e2e-ef80b841b2d8"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/employee" methodName="CheckValidation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="NotValidSalary" id="a1e6b4d8-b917-4940-a794-ecfa41d91919" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-AB0U5JP:8080/</con:endpoint><con:request>{
+    "birthDate": "1990-05-30",
+    "email": "new2@yandex.ru",
+    "employmentDate": "2010-05-30",
+    "manager": "false",
+    "name": "Иван",
+    "surname": "Иванов",
+    "phone": "+9(99) 99-99",
+    "salary": "-100",
+    "sex": "MALE",
+    "department": {"id":1},
+    "position": {"id":3}
+}</con:request><con:originalUri>http://DESKTOP-AB0U5JP/rest/employee</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="7a56f61d-e403-4c1a-ac1c-df78fc213d36" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="department TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [department] located at [/rest/department/3]</con:description><con:settings/><con:testStep type="restrequest" name="CreateDepartment" id="1e9b5194-79a2-4c46-a81b-6f4aace011bd"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/3" methodName="CreateDepartment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateDepartment" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request>{"name":"New Department Test", "parent":{"id":2}}</con:request><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DeleteDepartment" id="bb1f7159-a0ed-4e06-b940-8554edcea6bd"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/3" methodName="DeleteDepartment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DeleteDepartment" id="7a3cc969-f3ad-4d38-85cd-b281dc21ab6f" mediaType="text/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhos:8080/</con:endpoint><con:request/><con:originalUri>http://localhos/rest/department/3</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="65b7d60a-d1c8-4cb7-966e-14e433a216a3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="departments TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [departments] located at [/rest/department/]</con:description><con:settings/><con:testStep type="restrequest" name="GetAllDepartments" id="4d912e67-3d85-4cb7-8c7c-3f1d58990e8d"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/" methodName="GetAllDepartments" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetAllDepartments" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="69f37099-fe0d-4e1b-a44d-3f77f17281ad" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Department GetChildren TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [Department GetChildren] located at [/rest/department/2/children]</con:description><con:settings/><con:testStep type="restrequest" name="GetChildren" id="2bb963e2-0c6f-43a7-b45c-a76c92f5a03c"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/2/children" methodName="GetChildren" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetChildren" id="f888ee72-8678-4990-b612-9c8e29a49792" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/department/2/childs</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cf617a4d-1508-4297-ac32-6974f5894df3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Department GetAllSubs TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [Department GetAllSubs] located at [/rest/department/2/subs]</con:description><con:settings/><con:testStep type="restrequest" name="GetAllSubs" id="ae2970aa-4e42-42c3-99fc-80baf8276412"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/2/subs" methodName="GetAllSubs" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetAllSubs" id="f888ee72-8678-4990-b612-9c8e29a49792" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/rest/department/2/childs</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="651535b3-6b93-4df9-bc51-f5b869fb7a3f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="department Payrol TestCase" searchProperties="true"><con:description>TestCase generated for REST Resource [department Payrol] located at [/rest/department/2/payroll]</con:description><con:settings/><con:testStep type="restrequest" name="GetDepartment" id="4a0d7da1-f601-492c-9857-6bcce3f82833"><con:settings/><con:config service="http://localhost:8080" resourcePath="/rest/department/2/payroll" methodName="GetDepartment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetDepartment" id="95ba51ec-64ef-4ffa-b902-a54ade787610" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://localhost/http://localhost:8080/rest/department/2</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

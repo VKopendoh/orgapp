@@ -19,8 +19,12 @@ public class CustomErrorController implements ErrorController {
 
     private static final String PATH = "/error";
 
+    private final ErrorAttributes errorAttributes;
+
     @Autowired
-    private ErrorAttributes errorAttributes;
+    public CustomErrorController(ErrorAttributes errorAttributes) {
+        this.errorAttributes = errorAttributes;
+    }
 
     @RequestMapping(value = PATH)
     ErrorJson error(HttpServletRequest request, HttpServletResponse response, WebRequest webRequest) {

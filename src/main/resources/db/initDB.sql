@@ -2,7 +2,15 @@ DROP TABLE IF EXISTS department_history;
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS history;
 DROP TABLE IF EXISTS department;
+DROP TABLE IF EXISTS payroll;
 DROP TABLE IF EXISTS position;
+
+CREATE TABLE payroll
+(
+    id              SERIAL PRIMARY KEY,
+    department_name VARCHAR,
+    sum             INTEGER
+);
 
 CREATE TABLE department
 (
@@ -10,7 +18,9 @@ CREATE TABLE department
     create_date TIMESTAMP DEFAULT now(),
     name        VARCHAR UNIQUE NOT NULL,
     parent_id   INTEGER,
-    FOREIGN KEY (parent_id) REFERENCES department (id) ON DELETE CASCADE ON UPDATE CASCADE
+    payroll_id  INTEGER,
+    FOREIGN KEY (parent_id) REFERENCES department (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (payroll_id) REFERENCES payroll (id)
 );
 
 CREATE UNIQUE INDEX department_unique_name_idx
@@ -43,21 +53,21 @@ CREATE UNIQUE INDEX position_unique_name_idx
 CREATE TABLE employee
 (
     id              SERIAL PRIMARY KEY,
-    birth_date      date                              NOT NULL,
-    email           VARCHAR                           NOT NULL,
-    employment_date date                              NOT NULL,
+    birth_date      date                               NOT NULL,
+    email           VARCHAR                            NOT NULL,
+    employment_date date                               NOT NULL,
     manager         BOOLEAN DEFAULT FALSE,
-    name            VARCHAR                           NOT NULL,
-    surname         VARCHAR                           NOT NULL,
+    name            VARCHAR                            NOT NULL,
+    surname         VARCHAR                            NOT NULL,
     patronymic      VARCHAR,
-    phone           VARCHAR                           NOT NULL,
+    phone           VARCHAR                            NOT NULL,
     salary          INTEGER
-        CONSTRAINT positive_salary CHECK (salary > 0) NOT NULL,
-    sex             VARCHAR                           NOT NULL,
+        CONSTRAINT positive_salary CHECK (salary >= 0) NOT NULL,
+    sex             VARCHAR                            NOT NULL,
     retire_date     date,
     department_id   INTEGER,
     position_id     INTEGER,
-    FOREIGN KEY (department_id) REFERENCES department (id),
+    FOREIGN KEY (department_id) REFERENCES department (id) ON UPDATE CASCADE ,
     FOREIGN KEY (position_id) REFERENCES position (id)
 );
 
