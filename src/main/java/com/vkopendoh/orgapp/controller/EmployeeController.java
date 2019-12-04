@@ -2,7 +2,6 @@ package com.vkopendoh.orgapp.controller;
 
 import com.vkopendoh.orgapp.model.Employee;
 import com.vkopendoh.orgapp.service.EmployeeService;
-import com.vkopendoh.orgapp.to.EmployeeTo;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = EmployeeController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(value="Employee Management API", description="Operations pertaining to manage employees")
+@Api(value = "Employee Management API", description = "Operations pertaining to manage employees")
 public class EmployeeController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class EmployeeController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Employee> createWithLocation(@RequestBody Employee employee) {
+    public ResponseEntity<Employee> createWithLocation(@Valid @RequestBody Employee employee) throws Exception {
         Employee created = service.create(employee);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(REST_URL + "/{id}")
@@ -52,25 +52,24 @@ public class EmployeeController {
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void update(@RequestBody Employee employee, @PathVariable int id) {
+    public void update(@Valid @RequestBody Employee employee, @PathVariable int id) throws Exception {
         service.update(employee, id);
     }
 
     @PatchMapping(value = "/{id}/retire", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Employee retire(@RequestParam LocalDate date, @PathVariable int id){
-        return service.retire(date,id);
+    public Employee retire(@Valid @RequestParam LocalDate date, @PathVariable int id) throws Exception {
+        return service.retire(date, id);
     }
 
     @PatchMapping(value = "/{id}/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Employee transfer(@RequestParam int departmentId, @PathVariable int id){
-        return service.transfer(departmentId,id);
+    public Employee transfer(@Valid @RequestParam int departmentId, @PathVariable int id) {
+        return service.transfer(departmentId, id);
     }
 
     @PatchMapping(value = "/department/{oldDepartmentId}/transfer", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public List<Employee> transferAll(@RequestParam int newId, @PathVariable int oldDepartmentId){
-        return service.transferAll(oldDepartmentId,newId);
+    public List<Employee> transferAll(@RequestParam int newId, @PathVariable int oldDepartmentId) {
+        return service.transferAll(oldDepartmentId, newId);
     }
-
 
 
 }

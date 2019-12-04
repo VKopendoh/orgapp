@@ -60,7 +60,7 @@ public class DepartmentController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    //@ResponseStatus(value = HttpStatus.OK)
     public void delete(@PathVariable int id) {
         service.delete(id);
     }
@@ -82,7 +82,7 @@ public class DepartmentController {
     }
 
     @PutMapping(value = "/{id}/set/parent")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @ResponseStatus(value = HttpStatus.OK)
     public void setParent(@RequestParam Integer parentId, @PathVariable int id) {
         service.setParent(parentId, id);
     }

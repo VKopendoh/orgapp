@@ -25,9 +25,9 @@ CREATE UNIQUE INDEX position_unique_name_idx
 CREATE TABLE employee
 (
     id              SERIAL PRIMARY KEY,
-    birth_date      TIMESTAMP                         NOT NULL,
+    birth_date      date                         NOT NULL,
     email           VARCHAR                           NOT NULL,
-    employment_date TIMESTAMP                         NOT NULL,
+    employment_date date                         NOT NULL,
     manager         BOOLEAN DEFAULT FALSE,
     name            VARCHAR                           NOT NULL,
     surname         VARCHAR                           NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE employee
     salary          INTEGER
         CONSTRAINT positive_salary CHECK (salary > 0) NOT NULL,
     sex             VARCHAR                           NOT NULL,
-    retire_date     TIMESTAMP,
+    retire_date     date,
     department_id   INTEGER,
     position_id     INTEGER,
     FOREIGN KEY (department_id) REFERENCES department (id),

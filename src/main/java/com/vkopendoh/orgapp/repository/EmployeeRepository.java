@@ -11,7 +11,7 @@ import java.util.List;
 
 @Transactional(readOnly = true)
 @Repository
-public interface CrudEmployeeRepository extends JpaRepository<Employee, Integer> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     @Query("SELECT e FROM Employee e JOIN FETCH e.position JOIN FETCH e.department " +
             "WHERE e.department.id=:departmentId " +

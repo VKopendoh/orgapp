@@ -1,13 +1,15 @@
 package com.vkopendoh.orgapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
+
+import static com.vkopendoh.orgapp.util.EmployeeUtils.*;
 
 @Entity
 @DynamicUpdate
@@ -18,9 +20,13 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Pattern(regexp = RU_NAME_PATTERN, message = RU_NAME_MSG + "surname")
     private String surname;
 
+    @Pattern(regexp = RU_NAME_PATTERN, message = RU_NAME_MSG + "name")
     private String name;
+
+    @Pattern(regexp = RU_NAME_PATTERN, message = RU_NAME_MSG + "patronyc")
     private String patronymic;
 
     @Enumerated(EnumType.STRING)
@@ -28,12 +34,14 @@ public class Employee {
 
     private LocalDate birthDate;
 
+    @Pattern(regexp = PHONE_PATTERN, message = PHONE_MSG)
     private String phone;
 
     @Email
     private String email;
 
     private LocalDate employmentDate;
+
     private LocalDate retireDate;
 
 
@@ -46,7 +54,6 @@ public class Employee {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-    @BatchSize(size = 20)
     private Department department;
 
     private boolean manager;

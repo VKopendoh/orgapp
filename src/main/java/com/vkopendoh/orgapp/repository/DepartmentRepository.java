@@ -1,18 +1,17 @@
 package com.vkopendoh.orgapp.repository;
 
-/*//@Repository
-public class DepartmentRepository {
+import com.vkopendoh.orgapp.model.Department;
+import org.hibernate.annotations.BatchSize;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-   @Autowired
-   CrudDepartmentRepository departmentRepository;
+import java.util.List;
+import java.util.Optional;
 
-    public void save(Department department){
-        departmentRepository.save(department);
-    }
-
-    public List<Department> getAll(){
-       return departmentRepository.findAll();
-    }
-
-
-}*/
+@Repository
+@Transactional(readOnly = true)
+public interface DepartmentRepository extends JpaRepository<Department, Integer> {
+    Optional<Department> findByName(String name);
+}

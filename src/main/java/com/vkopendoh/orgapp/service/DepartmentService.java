@@ -3,10 +3,11 @@ package com.vkopendoh.orgapp.service;
 import com.vkopendoh.orgapp.model.Department;
 import com.vkopendoh.orgapp.model.Employee;
 import com.vkopendoh.orgapp.model.Payroll;
-import com.vkopendoh.orgapp.repository.CrudDepartmentRepository;
+import com.vkopendoh.orgapp.repository.DepartmentRepository;
 import com.vkopendoh.orgapp.to.DepartmentTo;
 import com.vkopendoh.orgapp.util.DepartmentUtils;
 import com.vkopendoh.orgapp.util.exception.NotFoundException;
+import com.vkopendoh.orgapp.util.exception.ViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +19,10 @@ import java.util.Set;
 @Service
 public class DepartmentService {
     @Autowired
-    CrudDepartmentRepository repository;
+    DepartmentRepository repository;
+
+    @Autowired
+    HistoryService historyService;
 
     @Transactional
     public Set<DepartmentTo> getAll() {
@@ -64,6 +68,8 @@ public class DepartmentService {
         Department department = get(id);
         if (department.getEmployees().isEmpty()) {
             repository.delete(department);
+        }else {
+            throw new ViolationException("Can't delete because there are employees in department with id: "+ id);
         }
     }
 
